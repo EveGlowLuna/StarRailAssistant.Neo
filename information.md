@@ -1,32 +1,25 @@
 channel:stable
 ---
 
-## StarRailAssistant Community Edition v0.1.0
+## StarRailAssistant Community Edition v0.1.1
 
-此为SRA-CE的第一个发布版本
-
-### 实现内容：
-
-1. 前端的完全重构
-2. 更新系统（除检测资源完整性）
-3. bugs 修复
-
-如有问题，请前往 [issues](https://github.com/EveGlowLuna/StarRailAssistant-CommunityEdition/issues) 中反馈
-
-官方网站：https://starrailassistant.xyz/
+更新内容：
+- 同步 [StarRailAssistant](https://github.com/Shasnow/StarRailAssistant) 后端更新
+- 更新配置文件版本至 Version 3
+- 新增货币战争刷开局功能
+- 新增货币战争模式选择（标准博弈/超频博弈/刷开局）
+- 新增货币战争难度选择
+- 新增刷开局配置项（投资环境、投资策略、策略阶段、最大尝试轮数）
 
 ---
 
-## StarRailAssistant Community Edition v0.1.0
+## StarRailAssistant Community Edition v0.1.1
 
-This is the first release version of SRA-CE
+ChangeLog:
+- Sync [StarRailAssistant](https://github.com/Shasnow/StarRailAssistant) backend update
+- Update config file version to Version 3
+- Add Currency Wars reroll start feature
+- Add Currency Wars mode selection (Standard Gambit/Overclock Gambit/Reroll Start)
+- Add Currency Wars difficulty selection
+- Add reroll start configuration options (investment environments, investment strategies, strategy stage, max retry)
 
-### Implemented Features:
-
-1. Complete frontend refactoring
-2. Update system (except resource integrity verification)
-3. Bug fixes
-
-If you have any questions, please report them in [issues](https://github.com/EveGlowLuna/StarRailAssistant-CommunityEdition/issues)
-
-Official website: https://starrailassistant.xyz/

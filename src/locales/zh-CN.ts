@@ -262,6 +262,7 @@ export default {
       title: '旷宇纷争',
       enable: '启用',
       mode: '模式',
+      difficulty: '难度',
       clearLevel: '通关',
       divergentUniverse: '差分宇宙',
       currencyWars: '货币战争',

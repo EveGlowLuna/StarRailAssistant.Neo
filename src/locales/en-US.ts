@@ -262,6 +262,7 @@ export default {
       title: 'Cosmic Strife',
       enable: 'Enable',
       mode: 'Mode',
+      difficulty: 'Difficulty',
       clearLevel: 'Clear Level',
       divergentUniverse: 'Divergent Universe',
       currencyWars: 'Currency Wars',

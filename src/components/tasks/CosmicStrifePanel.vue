@@ -73,6 +73,24 @@
             </div>
 
             <div class="form-group">
+              <label class="form-label">{{ t('tasks.cosmicStrife.mode') }}</label>
+              <CustomDropdown
+                v-model="modelValue.CurrencyWarsMode"
+                :options="currencyWarsModeOptions"
+                placeholder=""
+              />
+            </div>
+
+            <div class="form-group" v-if="isCwNormalMode">
+              <label class="form-label">{{ t('tasks.cosmicStrife.difficulty') }}</label>
+              <CustomDropdown
+                v-model="modelValue.CurrencyWarsDifficulty"
+                :options="currencyWarsDifficultyOptions"
+                placeholder=""
+              />
+            </div>
+
+            <div class="form-group" v-if="isCwNormalMode">
               <label class="form-label">{{ t('tasks.cosmicStrife.policy') }}</label>
               <CustomDropdown
                 v-model="modelValue.CurrencyWarsPolicy"
@@ -81,17 +99,7 @@
               />
             </div>
 
-            <div class="form-group">
-              <label class="form-label">{{ t('tasks.cosmicStrife.mode') }}</label>
-              <CustomDropdown
-                :model-value="0"
-                :options="currencyWarsModeOptions"
-                placeholder=""
-                disabled
-              />
-            </div>
-
-            <div class="form-group">
+            <div class="form-group" v-if="isCwNormalMode">
               <label class="form-label">{{ t('tasks.cosmicStrife.runTimes') }}</label>
               <input
                 v-model.number="modelValue.CurrencyWarsRunTimes"
@@ -100,6 +108,53 @@
                 max="99999"
                 class="form-input"
               />
+            </div>
+
+            <!-- 刷开局配置 -->
+            <div v-if="!isCwNormalMode" class="reroll-config">
+              <p class="hint-text">刷开局将默认使用最高难度。下方可配置需要的投资环境与投资策略（用空格分隔多个）。</p>
+              
+              <div class="form-group">
+                <label class="form-label">投资环境</label>
+                <input
+                  v-model="modelValue.CwRsInvestEnvironments"
+                  type="text"
+                  class="form-input"
+                  placeholder="例如：长线利好 轮岗"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">投资策略</label>
+                <input
+                  v-model="modelValue.CwRsInvestStrategies"
+                  type="text"
+                  class="form-input"
+                  placeholder="例如：砂里淘金"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">策略阶段</label>
+                <input
+                  v-model.number="modelValue.CwRsInvestStrategyStage"
+                  type="number"
+                  min="1"
+                  max="2"
+                  class="form-input"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">最大尝试轮数</label>
+                <input
+                  v-model.number="modelValue.CwRsMaxRetry"
+                  type="number"
+                  min="0"
+                  max="99999"
+                  class="form-input"
+                />
+              </div>
             </div>
           </div>
 
@@ -117,9 +172,11 @@ import { useTranslation } from '../../composables/useTranslation'
 
 const { t } = useTranslation()
 
-defineProps<{
+const props = defineProps<{
   modelValue: any
 }>()
+
+const isCwNormalMode = computed(() => props.modelValue.CurrencyWarsMode !== 2)
 
 const simulatedUniverseModeOptions = computed(() => [
   { label: t('tasks.cosmicStrife.singleLayer').value, value: 0 }
@@ -131,7 +188,14 @@ const currencyWarsPolicyOptions = computed(() => [
 ])
 
 const currencyWarsModeOptions = computed(() => [
-  { label: t('tasks.cosmicStrife.clearLevel').value, value: 0 }
+  { label: '标准博弈', value: 0 },
+  { label: '超频博弈', value: 1 },
+  { label: '刷开局', value: 2 }
+])
+
+const currencyWarsDifficultyOptions = computed(() => [
+  { label: '最低难度', value: 0 },
+  { label: '最高难度', value: 1 }
 ])
 </script>
 
@@ -258,6 +322,20 @@ const currencyWarsModeOptions = computed(() => [
   font-style: italic;
 }
 
+.reroll-config {
+  padding-left: 0;
+  margin-top: 8px;
+}
+
+.reroll-config .hint-text {
+  margin-bottom: 12px;
+  padding: 8px;
+  background: rgba(33, 150, 243, 0.1);
+  border-left: 3px solid #2196f3;
+  border-radius: 4px;
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   .panel-section {
     background: rgba(255, 255, 255, 0.1);
@@ -283,6 +361,11 @@ const currencyWarsModeOptions = computed(() => [
 
   .hint-text {
     color: #ccc;
+  }
+
+  .reroll-config .hint-text {
+    background: rgba(33, 150, 243, 0.2);
+    color: #90caf9;
   }
 }
 </style>

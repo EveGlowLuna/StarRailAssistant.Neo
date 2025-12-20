@@ -142,9 +142,15 @@ interface TaskConfig {
   SimulatedUniverseMode: number
   SimulatedUniverseRunTimes: number
   CurrencyWarsEnable: boolean
+  CurrencyWarsMode: number
   CurrencyWarsUsername: string
   CurrencyWarsPolicy: number
   CurrencyWarsRunTimes: number
+  CurrencyWarsDifficulty: number
+  CwRsInvestEnvironments: string
+  CwRsInvestStrategies: string
+  CwRsInvestStrategyStage: number
+  CwRsMaxRetry: number
   
   // 完成任务后
   AfterLogout: boolean
@@ -219,9 +225,15 @@ const config = ref<TaskConfig>({
   SimulatedUniverseMode: 0,
   SimulatedUniverseRunTimes: 0,
   CurrencyWarsEnable: false,
+  CurrencyWarsMode: 0,
   CurrencyWarsUsername: '',
   CurrencyWarsPolicy: 0,
   CurrencyWarsRunTimes: 0,
+  CurrencyWarsDifficulty: 0,
+  CwRsInvestEnvironments: '',
+  CwRsInvestStrategies: '',
+  CwRsInvestStrategyStage: 1,
+  CwRsMaxRetry: 1,
   
   AfterLogout: false,
   AfterExitGame: false,

@@ -123,9 +123,15 @@ fn create_config_with_name(name: &str) -> Result<(), String> {
         "SimulatedUniversePolicy": 0,
         "SimulatedUniverseRunTimes": 0,
         "CurrencyWarsEnable": false,
+        "CurrencyWarsMode": 0,
         "CurrencyWarsPolicy": 0,
         "CurrencyWarsRunTimes": 0,
         "CurrencyWarsUsername": "",
+        "CurrencyWarsDifficulty": 0,
+        "CwRsInvestEnvironments": "",
+        "CwRsInvestStrategies": "",
+        "CwRsInvestStrategyStage": 1,
+        "CwRsMaxRetry": 1,
         "StartGameAlwaysLogin": false,
         "StartGameAutoLogin": false,
         "StartGameChannel": 0,
@@ -200,6 +206,17 @@ pub fn load_config(name: String) -> Result<serde_json::Value, String> {
     
     let mut config: serde_json::Value = serde_json::from_str(&content)
         .map_err(|e| format!("Failed to parse config: {}", e))?;
+
+    // 检查配置版本，如果版本低于3，返回默认配置
+    let version = config.get("Version").and_then(|v| v.as_i64()).unwrap_or(0);
+    if version < 3 {
+        eprintln!("Config version {} is outdated, creating new config", version);
+        create_config_with_name(&name)?;
+        let new_content = fs::read_to_string(&config_file)
+            .map_err(|e| format!("Failed to read new config file: {}", e))?;
+        config = serde_json::from_str(&new_content)
+            .map_err(|e| format!("Failed to parse new config: {}", e))?;
+    }
 
     // 解密密码和用户名（如果存在）
     if let Some(encrypted_password) = config.get("StartGamePassword").and_then(|v| v.as_str()) {

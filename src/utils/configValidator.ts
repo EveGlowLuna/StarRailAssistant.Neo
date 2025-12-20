@@ -5,6 +5,7 @@ import { invoke } from '@tauri-apps/api/core'
 interface TaskConfig {
   Name: string
   CurrencyWarsEnable?: boolean
+  CurrencyWarsMode?: number
   CurrencyWarsUsername?: string
   [key: string]: any
 }
@@ -20,8 +21,9 @@ export function validateCurrencyWars(config: TaskConfig): string | null {
     return null
   }
   
-  // 如果启用了货币战争，检查用户名
-  if (!config.CurrencyWarsUsername || config.CurrencyWarsUsername.trim() === '') {
+  // 如果启用了货币战争，检查用户名（仅非刷开局模式需要）
+  const isRerollMode = config.CurrencyWarsMode === 2
+  if (!isRerollMode && (!config.CurrencyWarsUsername || config.CurrencyWarsUsername.trim() === '')) {
     return `配置"${config.Name}"的货币战争功能已启用，但开拓者名称为空，这是必填字段`
   }
   
