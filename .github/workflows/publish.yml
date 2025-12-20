@@ -55,7 +55,7 @@ jobs:
           
       - name: Build Python package
         run: |
-          cd SRA-CE-cil
+          cd SRA-CE-cli
           python -m pip install --upgrade pip
           pip install flake8 pytest
           pip install -r requirements.txt
