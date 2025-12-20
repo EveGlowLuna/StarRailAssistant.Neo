@@ -31,3 +31,6 @@ StarRailAssistant
 # setup file
 src-setup/output
 src-setup/targetdir
+
+# sra source
+/SRA-Source/
