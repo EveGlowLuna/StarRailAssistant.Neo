@@ -23,3 +23,6 @@ ChangeLog:
 - Add Currency Wars difficulty selection
 - Add reroll start configuration options (investment environments, investment strategies, strategy stage, max retry)
 
+Warn:
+- New content is currently displayed only in Chinese due to partial untranslated parts, and the input box also only allows Chinese configuration. We plan to address this in future updates.
+

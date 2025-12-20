@@ -323,12 +323,14 @@ const currencyWarsDifficultyOptions = computed(() => [
 }
 
 .reroll-config {
-  padding-left: 0;
   margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .reroll-config .hint-text {
-  margin-bottom: 12px;
+  margin: 0;
   padding: 8px;
   background: rgba(33, 150, 243, 0.1);
   border-left: 3px solid #2196f3;
