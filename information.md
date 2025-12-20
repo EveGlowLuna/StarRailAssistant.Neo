@@ -1,4 +1,4 @@
-channel:stable
+channel:beta
 ---
 
 ## StarRailAssistant Community Edition v0.1.1
