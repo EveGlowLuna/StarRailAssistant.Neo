@@ -5,7 +5,11 @@
     <img alt="Static Badge" src="https://img.shields.io/badge/Tauri-2.0-24c8db">
     <img alt="Static Badge" src="https://img.shields.io/badge/Vue-3.0-42b883">
     <img alt="GitHub Release" src="https://img.shields.io/github/v/release/EveGlowLuna/StarRailAssistant-CommunityEdition">
+    <img alt="status" src="https://img.shields.io/badge/维护-缓慢/停滞-yellow">
 </p>
+
+> [!WARNING]
+> 由于开发者暂时切换至 Linux 环境且临近高考，项目处于**半弃坑**状态。欢迎为项目提交 [PR](https://github.com/EveGlowLuna/StarRailAssistant-CommunityEdition/pulls)。
 
 # StarRailAssistant Community Edition (SRA-CE)
 
