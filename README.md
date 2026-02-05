@@ -9,21 +9,22 @@
 </p>
 
 > [!WARNING]
-> 由于开发者暂时切换至 Linux 环境且临近高考，项目处于**半弃坑**状态。欢迎为项目提交 [PR](https://github.com/EveGlowLuna/StarRailAssistant-CommunityEdition/pulls)。
+> 由于开发者暂时切换至 Linux 环境且临近高考，项目处于**半弃坑**状态。欢迎为项目提交 [PR](https://github.com/EveGlowLuna/StarRailAssistant.Neo/pulls)。
 
-# StarRailAssistant Community Edition (SRA-CE)
+# StarRailAssistant.Neo
 
-崩坏星穹铁道自动化助手 - 社区版
+崩坏星穹铁道自动化助手（原SRA-CE）
 
 ## 项目简介
 
-这是基于 [StarRailAssistant](https://github.com/Shasnow/StarRailAssistant) 的社区版本，使用 **Tauri + Vue 3** 重构了前端界面，提供更现代化的用户体验。
+这是基于 [StarRailAssistant](https://github.com/Shasnow/StarRailAssistant) 的二次开发版本，使用 **Tauri + Vue 3** 重构了前端界面，提供更现代化的用户体验。
 
 ### 与原版的区别
 
 - ✨ **全新前端**：使用 Tauri + Vue 3 + TypeScript 重构，界面更美观、性能更优
 - 🚀 **更小体积**：相比原版 .NET 前端，打包体积更小、无需安装.NET Runtime
 - 🔧 **易于扩展**：基于 Web 技术栈，更容易进行二次开发和定制
+- 🧭 **拓展支持**：支持 Linux 平台（尚未完工）
 
 ## 什么是 SRA？
 
@@ -62,7 +63,7 @@ This software is open source, free of charge and for learning and exchange purpo
 
 ### 下载安装
 
-前往 [Releases](https://github.com/EveGlowLuna/StarRailAssistant-CommunityEdition/releases/latest) 或 [AList](https://alist.starrailassistant.xyz/) 页面下载最新版本.
+前往 [Releases](https://github.com/EveGlowLuna/StarRailAssistant.Neo/releases/latest) 或 [AList](https://alist.starrailassistant.xyz/) 页面下载最新版本.
 
 ### 使用方法
 
@@ -142,7 +143,7 @@ npm run package
 
 如果您在使用过程中遇到问题或有建议，欢迎通过以下方式反馈：
 
-* 通过 **Issues** 反馈：[提交 Issue](https://github.com/EveGlowLuna/StarRailAssistant-CommunityEdition/issues)
+* 通过 **Issues** 反馈：[提交 Issue](https://github.com/EveGlowLuna/StarRailAssistant.Neo/issues)
 * 通过 **Pull Request** 贡献代码
 
 ## 贡献指南
