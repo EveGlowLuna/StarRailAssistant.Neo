@@ -9,7 +9,7 @@
 </p>
 
 > [!WARNING]
-> 由于开发者暂时切换至 Linux 环境且临近高考，项目处于**半弃坑**状态。欢迎为项目提交 [PR](https://github.com/EveGlowLuna/StarRailAssistant.Neo/pulls)。
+> 正在为Linux平台的运行做铺垫，项目处于**缓慢开发**状态。CLI已有雏形，可[点此查看](https://github.com/EveGlowLuna/SRA-CE-Cli/tree/linux_dev)
 
 # StarRailAssistant.Neo
 
