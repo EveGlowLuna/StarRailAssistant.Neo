@@ -1,0 +1,34 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:viewModels="clr-namespace:SRAFrontend.ViewModels"
+             xmlns:taskViews="clr-namespace:SRAFrontend.Views.TaskViews"
+             xmlns:lang="clr-namespace:SRAFrontend.Localization"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="viewModels:TaskPageViewModel"
+             x:Class="SRAFrontend.Views.TaskPageView">
+    <Border Margin="10">
+        <Grid RowDefinitions="Auto, *">
+            <suki:GlassCard Content="{Binding ControlPanelViewModel}" />
+            <TabControl Grid.Row="1">
+                <TabItem Header="{x:Static lang:Resources.StartGameText}">
+                    <taskViews:StartGameView />
+                </TabItem>
+                <TabItem Header="{x:Static lang:Resources.TrailblazePowerText}">
+                    <taskViews:TrailblazePowerView />
+                </TabItem>
+                <TabItem Header="{x:Static lang:Resources.ReceiveRewardsText}">
+                    <taskViews:ReceiveRewardsView />
+                </TabItem>
+                <TabItem Header="{x:Static lang:Resources.CosmicStrifeText}">
+                    <taskViews:CosmicStrife />
+                </TabItem>
+                <TabItem Header="{x:Static lang:Resources.InTheEndText}">
+                    <taskViews:MissionAccomplishView />
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Border>
+</UserControl>

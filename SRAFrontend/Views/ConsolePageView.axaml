@@ -1,0 +1,51 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:lang="clr-namespace:SRAFrontend.Localization"
+             xmlns:viewModels="clr-namespace:SRAFrontend.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SRAFrontend.Views.ConsolePageView"
+             x:DataType="viewModels:ConsolePageViewModel">
+
+    <suki:GlassCard>
+        <suki:GroupBox>
+            <suki:GroupBox.Header>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <TextBlock Text="{x:Static lang:Resources.ConsoleText}" VerticalAlignment="Center" />
+                    <Button
+                        Height="20"
+                        Width="20"
+                        Classes="Basic Icon"
+                        Content="&#xE036;"
+                        ToolTip.Tip="重新启动后端"
+                        Command="{Binding RestartConsoleCommand}"/>
+                    <Button
+                        Height="20"
+                        Width="20"
+                        Classes="Basic Icon"
+                        Content="&#xE3DE;"
+                        ToolTip.Tip="停止后端"
+                        Command="{Binding StopConsoleCommand}"/>
+                </StackPanel>
+            </suki:GroupBox.Header>
+            <Grid RowDefinitions="Auto,*,Auto">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="20">
+                    <Label Content="过滤器：" />
+                    <!-- ReSharper disable Xaml.StyleClassNotFound -->
+                    <ToggleButton Classes="Discrete" Content="Trace" IsChecked="{Binding FilterOptions[0]}" />
+                    <ToggleButton Classes="Information" Content="Debug" IsChecked="{Binding FilterOptions[1]}" />
+                    <ToggleButton Classes="Success" Content="Info" IsChecked="{Binding FilterOptions[2]}"/>
+                    <ToggleButton Classes="Warning" Content="Warn" IsChecked="{Binding FilterOptions[3]}"/>
+                    <ToggleButton Classes="Danger" Content="Error" IsChecked="{Binding FilterOptions[4]}"/>
+                    <!-- ReSharper restore Xaml.StyleClassNotFound -->
+                </StackPanel>
+                <ScrollViewer Grid.Row="1" x:Name="ConsoleScrollViewer">
+                    <SelectableTextBlock Text="{Binding ConsoleLines}" TextWrapping="Wrap"/>
+                </ScrollViewer>
+                <TextBox Grid.Row="2" Watermark="请输入文本" KeyDown="InputElement_OnKeyDown"/>
+            </Grid>
+        </suki:GroupBox>
+    </suki:GlassCard>
+</UserControl>

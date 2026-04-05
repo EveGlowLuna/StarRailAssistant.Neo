@@ -1,0 +1,95 @@
+﻿using System;
+using Microsoft.Extensions.Logging;
+using SRAFrontend.Models;
+using SRAFrontend.Utils;
+
+namespace SRAFrontend.Services;
+
+public class SettingsService
+{
+    private readonly ILogger _logger;
+    public readonly Settings Settings;
+
+    public SettingsService(ILogger<SettingsService> logger)
+    {
+        _logger = logger;
+        _logger.LogInformation("Loading settings...");
+        _logger.LogInformation("Current version: {Version}", Settings.Version);
+        Settings = DataPersister.LoadSettings();
+        if (string.IsNullOrEmpty(Settings.EncryptedMirrorChyanCdk))
+        {
+        }
+        else
+        {
+            string decryptedString;
+            try
+            {
+                decryptedString = EncryptUtil.DecryptString(Settings.EncryptedMirrorChyanCdk);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Failed to decrypt MirrorChyanCdk");
+                decryptedString = "";
+            }
+
+            Settings.MirrorChyanCdk = decryptedString;
+        }
+
+        if (string.IsNullOrEmpty(Settings.EncryptedEmailAuthCode))
+        {
+        }
+        else
+        {
+            string decryptedAuthCode;
+            try
+            {
+                decryptedAuthCode = EncryptUtil.DecryptString(Settings.EncryptedEmailAuthCode);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Failed to decrypt EmailAuthCode");
+                decryptedAuthCode = "";
+            }
+
+            Settings.EmailAuthCode = decryptedAuthCode;
+        }
+    }
+
+    public void SaveSettings()
+    {
+        _logger.LogInformation("Saving settings");
+        string encryptedString;
+        if (string.IsNullOrWhiteSpace(Settings.MirrorChyanCdk))
+            encryptedString = "";
+        else
+            try
+            {
+                encryptedString = EncryptUtil.EncryptString(Settings.MirrorChyanCdk);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Failed to encrypt MirrorChyanCdk");
+                encryptedString = "";
+            }
+
+        Settings.EncryptedMirrorChyanCdk = encryptedString;
+
+        string encryptedAuthCode;
+        if (string.IsNullOrWhiteSpace(Settings.EmailAuthCode))
+            encryptedAuthCode = "";
+        else
+            try
+            {
+                encryptedAuthCode = EncryptUtil.EncryptString(Settings.EmailAuthCode);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Failed to encrypt EmailAuthCode");
+                encryptedAuthCode = "";
+            }
+
+        Settings.EncryptedEmailAuthCode = encryptedAuthCode;
+
+        DataPersister.SaveSettings(Settings);
+    }
+}

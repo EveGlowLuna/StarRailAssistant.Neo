@@ -1,0 +1,34 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:suki="https://github.com/kikipoulet/SukiUI"
+             xmlns:viewModels="clr-namespace:SRAFrontend.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SRAFrontend.Views.TaskViews.MissionAccomplishView"
+             x:DataType="viewModels:TaskPageViewModel">
+    <suki:GlassCard>
+        <suki:GroupBox>
+            <suki:GroupBox.Header>
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <CheckBox Content="任务完成后" IsChecked="{Binding CurrentConfig.EnabledTasks[4]}"/>
+                    <Button Content="&#xE3D0;" Classes="Flat Icon" Height="20" FontSize="14"
+                            Command="{Binding SingleTaskCommand}"
+                            CommandParameter="MissionAccomplishTask"
+                            ToolTip.Tip="单次运行"/>
+                </StackPanel>
+                
+            </suki:GroupBox.Header>
+            <ScrollViewer>
+                <StackPanel Margin="10" Spacing="20">
+                    <CheckBox IsChecked="{Binding CurrentConfig.AfterLogout}" Content="登出当前账号" />
+                    <CheckBox IsChecked="{Binding CurrentConfig.AfterExitGame}" Content="退出游戏" />
+                    <CheckBox IsChecked="{Binding CurrentConfig.AfterExitApp}" Content="关闭程序" />
+                    <RadioButton IsChecked="{Binding CurrentConfig.AfterShutdown}" Content="关机" />
+                    <RadioButton IsChecked="{Binding CurrentConfig.AfterSleep}" Content="休眠" />
+                    <RadioButton Content="无动作" />
+                </StackPanel>
+            </ScrollViewer>
+        </suki:GroupBox>
+    </suki:GlassCard>
+</UserControl>

@@ -1,0 +1,67 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:SRAFrontend.Controls"
+             xmlns:lang="clr-namespace:SRAFrontend.Localization"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="50"
+             x:Class="SRAFrontend.Controls.ControlPanelView"
+             x:DataType="controls:ControlPanelViewModel">
+    <StackPanel
+        Orientation="Horizontal"
+        HorizontalAlignment="Right"
+        Spacing="10">
+        <TextBox Width="250"
+                 Watermark="{x:Static lang:Resources.ConfigInputMarkText}"
+                 Text="{Binding NewConfigName}"
+                 IsVisible="{Binding IsAddConfigOpen}"/>
+        <Button Classes="Icon" Content="&#xE3D4;"
+                Command="{Binding OpenAddConfigCommand}"
+                IsVisible="{Binding !IsAddConfigOpen}"
+                ToolTip.Tip="{x:Static lang:Resources.NewConfigText}"/>
+        <!-- ReSharper disable once Xaml.StyleClassNotFound -->
+        <Button Classes="Flat Icon" Content="&#xE182;"
+                Command="{Binding AddConfigCommand}"
+                IsVisible="{Binding IsAddConfigOpen}"
+                ToolTip.Tip="{x:Static lang:Resources.EnsureText}"/>
+        <Button Classes="Icon" Content="&#xE32A;" 
+                Command="{Binding RemoveConfigCommand}"
+                ToolTip.Tip="{x:Static lang:Resources.RemoveConfigText}"/>
+
+        <ComboBox SelectedIndex="{Binding Cache.CurrentConfigIndex}"
+                  Width="150" ItemsSource="{Binding Cache.ConfigNames}"
+                  ToolTip.Tip="{x:Static lang:Resources.CurrentConfigText}">
+        </ComboBox>
+
+        <!-- ReSharper disable Xaml.StyleClassNotFound -->
+        <SplitButton Content="{Binding StartModeText}"
+                     Classes="Flat Rounded"
+                     Command="{Binding StartButtonCommand}"
+                     IsVisible="{Binding CanStart}"
+                     ToolTip.Tip="{x:Static lang:Resources.StartButtonTipText}">
+            <!-- ReSharper restore Xaml.StyleClassNotFound -->
+            <SplitButton.Flyout>
+                <MenuFlyout>
+                    <MenuItem Header="{x:Static lang:Resources.CurrentText}" 
+                              Command="{Binding SwitchStartModeCommand}" 
+                              CommandParameter="Current"
+                              ToolTip.Tip="{x:Static lang:Resources.CurrentButtonTipText}"/>
+                    <MenuItem Header="{x:Static lang:Resources.AllText}" 
+                              Command="{Binding SwitchStartModeCommand}" 
+                              CommandParameter="All"
+                              ToolTip.Tip="{x:Static lang:Resources.AllButtonTipText}"/>
+                    <MenuItem Header="{x:Static lang:Resources.SaveOnlyText}" 
+                              Command="{Binding SwitchStartModeCommand}"
+                              CommandParameter="Save Only"
+                              ToolTip.Tip="{x:Static lang:Resources.SaveOnlyButtonTipText}"/>
+                </MenuFlyout>
+            </SplitButton.Flyout>
+        </SplitButton>
+        <!-- ReSharper disable Xaml.StyleClassNotFound -->
+        <Button Classes="Flat Rounded"
+                Content="{x:Static lang:Resources.StopText}"
+                IsVisible="{Binding !CanStart}"
+                Command="{Binding StopButtonCommand}"></Button>
+        <!-- ReSharper restore Xaml.StyleClassNotFound -->
+    </StackPanel>
+</UserControl>

@@ -1,36 +1,39 @@
-﻿**/data/
-**/log/
-**/.venv/
+# 数据和日志
+/data/
+/log/
+
+# IDE / 编辑器
 /.vscode/
-/setup/output/
-**/__pycache__/
 **/.vs/
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+/.idea
 
-node_modules
-dist
-dist-ssr
-*.local
+# .NET 构建输出
+/SRAFrontend/bin/
+/SRAFrontend/obj/
+/SRAFrontend/SRAFrontend.sln.DotSettings.user
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.sw?
+# Python 虚拟环境和缓存
+/.venv/
+**/__pycache__/
 
-# sra-cli
-StarRailAssistant
-# setup file
-src-setup/output
-src-setup/targetdir
+# Coverage.py
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
 
-# sra source
-/SRA-Source/
+# 打包 / 安装输出
+/setup/output/
+/setup/SRA/
+/setup/install_info.txt
+/main.dist/
+*.zip
+
+# 构建产物
+*.dll
+*.pyd
+*.pdb
+*.exe
+
+# 其他
+version_info.txt
