@@ -1,15 +1,13 @@
-<p align="center"><img src="/src/assets/SRAico.png" alt="icon"></p>
+<p align="center"><img src="resources/SRAico.png" alt="icon"></p>
 <p align="center">
     <img src="https://img.shields.io/badge/platform-Windows-blue" alt="platform">
     <img alt="Static Badge" src="https://img.shields.io/badge/python-3.12-skyblue">
-    <img alt="Static Badge" src="https://img.shields.io/badge/Tauri-2.0-24c8db">
-    <img alt="Static Badge" src="https://img.shields.io/badge/Vue-3.0-42b883">
     <img alt="GitHub Release" src="https://img.shields.io/github/v/release/EveGlowLuna/StarRailAssistant-CommunityEdition">
     <img alt="status" src="https://img.shields.io/badge/维护-缓慢/停滞-yellow">
 </p>
 
 > [!WARNING]
-> 正在为Linux平台的运行做铺垫，项目处于**缓慢开发**状态。
+> 正在为Linux平台的运行做铺垫，项目处于**缓慢开发**状态。你可以从源码运行（现已支持基本功能），但注意由于Linux平台的特殊性，并未对Linux平台实现**游戏启动**的功能。请自行前往GitHub查找启动器
 
 # StarRailAssistant.Neo
 
