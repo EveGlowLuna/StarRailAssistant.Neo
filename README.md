@@ -9,22 +9,17 @@
 </p>
 
 > [!WARNING]
-> 正在为Linux平台的运行做铺垫，项目处于**缓慢开发**状态。CLI已有雏形，可[点此查看](https://github.com/EveGlowLuna/SRA-CE-Cli/tree/linux_dev)
+> 正在为Linux平台的运行做铺垫，项目处于**缓慢开发**状态。
 
 # StarRailAssistant.Neo
 
 崩坏星穹铁道自动化助手（社区版太过个人，个人版太过社区，故改名；原SRA-CE）
 
+原架构（Tauri）太难跟进，故与原版保持一致。
+
 ## 项目简介
 
-这是基于 [StarRailAssistant](https://github.com/Shasnow/StarRailAssistant) 的二次开发版本，使用 **Tauri + Vue 3** 重构了前端界面，提供更现代化的用户体验。
-
-### 与原版的区别
-
-- ✨ **全新前端**：使用 Tauri + Vue 3 + TypeScript 重构，界面更美观、性能更优
-- 🚀 **更小体积**：相比原版 .NET 前端，打包体积更小、无需安装.NET Runtime
-- 🔧 **易于扩展**：基于 Web 技术栈，更容易进行二次开发和定制
-- 🧭 **拓展支持**：支持 Linux 平台（尚未完工）
+这是基于 [StarRailAssistant](https://github.com/Shasnow/StarRailAssistant) 的二次开发版本，为 Linux 提供支持
 
 ## 什么是 SRA？
 
@@ -61,6 +56,8 @@ This software is open source, free of charge and for learning and exchange purpo
 
 ## 快速开始
 
+> 目前还没有最新版的Release,尽请期待。
+
 ### 下载安装
 
 前往 [Releases](https://github.com/EveGlowLuna/StarRailAssistant.Neo/releases/latest) 或 [AList](https://alist.starrailassistant.xyz/) 页面下载最新版本.
@@ -79,66 +76,6 @@ This software is open source, free of charge and for learning and exchange purpo
 * **执行任务时不要进行其他键鼠操作！**
 * **菜单要用初始壁纸**
 
-## 从源码构建
-
-### 环境要求
-
-- Node.js 18+
-- Python 3.12+
-- Rust (Tauri 依赖)
-
-### 安装依赖
-
-```bash
-# 安装前端依赖
-npm install
-
-# 安装后端依赖
-cd Backend
-pip install -r requirements.txt
-cd ..
-```
-
-### 开发模式
-
-```bash
-# 后端
-python main.py
-# 启动开发服务器
-# 提前打包 Python 文件以进行全面调试
-python package.py
-npm run tauri dev
-```
-
-### 构建发布版本
-
-```bash
-# 打包后端
-cd Backend
-python package.py
-cd ..
-
-# 打包主程序
-npm run package
-```
-
-构建完成后，在 `src-setup/output` 目录下可以找到：
-- 安装包：`StarRailAssistant-{版本号}-setup.exe`
-- 便携版：`StarRailAssistant-{版本号}-portable.zip`
-
-## 技术栈
-
-### 前端
-- Tauri 2.0 - 跨平台桌面应用框架
-- Vue 3 - 渐进式 JavaScript 框架
-- TypeScript - 类型安全的 JavaScript 超集
-- Vite - 下一代前端构建工具
-
-### 后端
-- Python 3.12 - 核心逻辑实现
-- OpenCV - 图像识别
-- Nuitka - Python 打包工具
-
 ## 反馈与支持
 
 如果您在使用过程中遇到问题或有建议，欢迎通过以下方式反馈：
@@ -148,15 +85,7 @@ npm run package
 
 ## 贡献指南
 
-欢迎为项目做出贡献！如果你希望参与开发：
-
-### 后端开发
-* 熟悉 Python
-* 正在游玩并将长期游玩崩坏：星穹铁道
-
-### 前端开发
-* 熟悉 Vue 3 和 TypeScript
-* 了解 Tauri 框架
+请查看[贡献指南](CONTRIBUTING.md)
 
 ## 致谢
 
