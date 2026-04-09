@@ -11,6 +11,8 @@
 
 # StarRailAssistant.Neo
 
+![Stone Badge](https://stone.professorlee.work/api/stone/EveGlowLuna/StarRailAssistant.Neo)
+
 崩坏星穹铁道自动化助手（社区版太过个人，个人版太过社区，故改名；原SRA-CE）
 
 原架构（Tauri）太难跟进，故与原版保持一致。
