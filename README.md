@@ -17,6 +17,15 @@
 
 原架构（Tauri）太难跟进，故与原版保持一致。
 
+## 项目进展
+
+Wayland：
+- GNOME:半成功
+- KDE：理论能用
+- 其他：未经测试
+
+X11：还没研究接口
+
 ## 项目简介
 
 这是基于 [StarRailAssistant](https://github.com/Shasnow/StarRailAssistant) 的二次开发版本，为 Linux 提供支持
